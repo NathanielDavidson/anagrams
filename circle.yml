@@ -1,0 +1,14 @@
+test:
+   pre:
+      - gradle build
+general:
+   artifacts:
+      - "build/generated/*.apk"
+deployment:
+  production:
+    branch: master
+    commands:
+      - eb deploy --staged
+notify:
+  webhooks:
+    - url: http://csumbse.net/harbormaster/hook/circleci/
